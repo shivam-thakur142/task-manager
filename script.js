@@ -87,7 +87,7 @@ function renderTasks() {
         // Updates completed status in MongoDB
         checkbox.addEventListener("change", async function() {
             try {
-                const response = await fetch(`/api/tasks/${task._id}`, {
+                const response = await fetch(`${API_URL}/${task._id}`, {
                     method: "PATCH",
                     headers: {
                         "Content-Type": "application/json"
