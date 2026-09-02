@@ -3,6 +3,7 @@ const taskForm = document.getElementById("task-form");
 const taskInput = document.getElementById("task-input");
 const taskList = document.getElementById("task-list");
 const filterButtons = document.querySelectorAll(".filter");
+const API_URL = "https://task-manager-jibg.onrender.com/api/tasks";
 
 // Holds tasks loaded from MongoDB
 let tasks = [];
@@ -11,7 +12,7 @@ let currentFilter = "All";
 // Loads tasks from the backend when the page opens
 async function loadTasks() {
     try {
-        const response = await fetch("/api/tasks");
+        const response = await fetch(API_URL);
         tasks = await response.json();
         renderTasks();
     } catch (error) {
@@ -30,7 +31,7 @@ taskForm.addEventListener("submit", async function(event) {
     }
 
     try {
-        const response = await fetch("/api/tasks", {
+        const response = await fetch(API_URL, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -86,7 +87,7 @@ function renderTasks() {
         // Updates completed status in MongoDB
         checkbox.addEventListener("change", async function() {
             try {
-                const response = await fetch(`/api/tasks/${task._id}`, {
+                const response = await fetch(`${API_URL}/${task._id}`, {
                     method: "PATCH",
                     headers: {
                         "Content-Type": "application/json"
@@ -111,7 +112,7 @@ function renderTasks() {
         // Deletes the task from MongoDB
         deleteButton.addEventListener("click", async function() {
             try {
-                await fetch(`/api/tasks/${task._id}`, {
+                await fetch(`${API_URL}/${task._id}`, {
                     method: "DELETE"
                 });
 
