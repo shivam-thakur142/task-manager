@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Helps the website fit correctly on phones -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TaskFlow</title>
+
+    <!-- Connects the design file -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="app">
+        <!-- App heading -->
+        <header>
+            <h1>TaskFlow</h1>
+            <p>Plan your day. Finish your goals.</p>
+        </header>
+
+        <!-- Form for adding a new task -->
+        <form id="task-form">
+            <input
+                id="task-input"
+                type="text"
+                placeholder="What do you need to do?"
+                required
+            >
+            <button type="submit">Add Task</button>
+        </form>
+
+        <!-- Buttons for filtering tasks later -->
+        <div class="filters">
+            <button class="filter active">All</button>
+            <button class="filter">Pending</button>
+            <button class="filter">Completed</button>
+        </div>
+
+        <!-- New tasks will appear here -->
+        <ul id="task-list"></ul>
+    </main>
+
+    <!-- Connects the JavaScript file -->
+    <script src="script.js"></script>
+</body>
+
+</html>
