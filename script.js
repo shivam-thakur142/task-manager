@@ -3,7 +3,7 @@ const taskForm = document.getElementById("task-form");
 const taskInput = document.getElementById("task-input");
 const taskList = document.getElementById("task-list");
 const filterButtons = document.querySelectorAll(".filter");
-const API_URL = "https://task-manager-jibg.onrender.com/api/tasks";
+const API_URL = "https://task-manager-jlbg.onrender.com/api/tasks";
 
 // Holds tasks loaded from MongoDB
 let tasks = [];
